@@ -3,15 +3,20 @@ import os
 import random
 import time
 
+import requests
+import ssl
 from tqdm import tqdm
 from config import Config
 from pathlib import Path
 
 from datasets import Dataset, DatasetDict, load_from_disk
 from datasets import Split
+from peft import LoraConfig, TaskType
+from huggingface_hub import configure_http_backend
 from loguru import logger
 from sql_metadata import Parser
 
+from train import run_train
 from util import _build_context, parse_sql_schema_with_regex
 
 
@@ -139,9 +144,19 @@ def get_schema_file(data_dir: Path, db_id: str):
     
     return None
 
+def setup_proxy():
+    os.environ['HTTP_PROXY'] = '192.168.5.8:3128'
+    os.environ['HTTPS_PROXY'] = '192.168.5.8:3128'
+
+def backend_factory() -> requests.Session:
+    session = requests.Session()
+    session.verify = False
+    return session
+
 def main(config: Config):
     data_dir = Path(config.processed_dir) / config.dataset_name
     dataset_dict = load_from_disk(data_dir)
+    run_train(dataset_dict, config)
 
 if __name__ == '__main__':
     config = read_config()

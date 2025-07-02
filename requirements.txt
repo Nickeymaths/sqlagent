@@ -5,3 +5,4 @@ numpy==2.3.1
 python-dotenv==1.1.1
 pydantic==2.11.7
 loguru==0.7.3
+bitsandbytes==0.46.0
