@@ -1,0 +1,39 @@
+##[pylyzer] failed /data/vinhpt/sqlagent/config.py 1751307062 1152
+.___v_desugar_1: Never
+.find_dotenv: Never
+.___v_desugar_2: Never
+.Field: Never
+.field_validator: Never
+.___v_desugar_3: Never
+.BaseSettings: Never
+.SettingsConfigDict: Never
+.NoDecode: Never
+.___v_desugar_4: Never
+.Annotated: Never
+.Config: ClassType
+.Config <: Never
+.Config.paged_optimization: Bool
+.Config.optimizer: Str
+.Config.log_file: Str
+.Config.gradient_checkpointing: Bool
+.Config.kv_cache: Bool
+.Config.processed_dir: Str
+.Config.bnb_4bit_compute_type: Str
+.Config.temperature: Float
+.Config.gradient_accumulation_steps: Int
+.Config.lr: Float
+.Config.bnb_4bit_use_double_quant: Bool
+.Config.model_id: Str
+.Config.r: Float
+.Config.batch_size: Int
+.Config.lora_alpha: Float
+.Config.load_in_4bit: Bool
+.Config.bnb_4bit_quant_type: Str
+.Config.lora_dropout: Float
+.Config.max_token: Int
+.Config.dataset_name: Str
+.Config.data_dir: Str
+.Config.target_modules: Never
+.Config.model_config: Never
+.Config.decode_target_modules: (cls: Obj, v: Str) -> global::List!(Str, _: Nat)
+
